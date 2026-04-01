@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Admin Dashboard</h3>
+<div class="row">
+    <div class="col-md-4"><div class="card p-3">Total Patients: {{ total_patients }}</div></div>
+    <div class="col-md-4"><div class="card p-3">Total Doctors: {{ total_doctors }}</div></div>
+    <div class="col-md-4"><div class="card p-3">Total Appointments: {{ total_appointments }}</div></div>
+</div>
+<a href="/view_patients" class="btn btn-primary mt-3">Manage Patients</a>
+<a href="/view_doctors" class="btn btn-primary mt-3">Manage Doctors</a>
+<a href="/view_appointments" class="btn btn-primary mt-3">Manage Appointments</a>
+<a href="/medical_records" class="btn btn-primary mt-3">View Medical Records</a>
+{% endblock %}
+

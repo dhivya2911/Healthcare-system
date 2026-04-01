@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Patient List</h3>
+<a href="/add_patient" class="btn btn-success mb-3">Add Patient</a>
+<table class="table table-bordered bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Disease</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patients %}
+        <tr>
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ patient.disease }}</td>
+            <td>
+                <a href="/edit_patient/{{ patient.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/delete_patient/{{ patient.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Doctor List</h3>
+<a href="/add_doctor" class="btn btn-success mb-3">Add Doctor</a>
+<table class="table table-bordered bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for doctor in doctors %}
+        <tr>
+            <td>{{ doctor.id }}</td>
+            <td>Dr. {{ doctor.name }}</td>
+            <td>{{ doctor.specialization }}</td>
+            <td>
+                <a href="/edit_doctor/{{ doctor.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/delete_doctor/{{ doctor.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endblock %}

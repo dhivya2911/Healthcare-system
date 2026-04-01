@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Appointment List</h3>
+<a href="/add_appointment" class="btn btn-success mb-3">Add Appointment</a>
+<table class="table table-bordered bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for appt in appointments %}
+        <tr>
+            <td>{{ appt.id }}</td>
+            <td>{{ appt.patient_name }}</td>
+            <td>Dr. {{ appt.doctor_name }}</td>
+            <td>{{ appt.date }}</td>
+            <td>
+                <a href="/edit_appointment/{{ appt.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/delete_appointment/{{ appt.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endblock %}

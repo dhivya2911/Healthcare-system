@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Medical Records</h3>
+<table class="table table-bordered bg-white">
+    <thead class="table-dark">
+    <tr>
+        <th>Patient</th>
+        <th>Age</th>
+        <th>Disease</th>
+        <th>Doctor</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for r in records %}
+    <tr>
+        <td>{{ r.name }}</td>
+        <td>{{ r.age }}</td>
+        <td>{{ r.disease }}</td>
+        <td>Dr. {{ r.doctor }}</td>
+        <td>{{ r.date }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endblock %}

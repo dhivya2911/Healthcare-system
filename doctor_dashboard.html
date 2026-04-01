@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Doctor Dashboard</h3>
+<table class="table table-bordered">
+    <thead class="table-dark">
+    <tr>
+        <th>Date</th>
+        <th>Patient</th>
+        <th>Disease</th>
+    </tr>
+    </thead>
+    {% for appointment in appointments %}
+    <tr>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.patient }}</td>
+        <td>{{ appointment.disease }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
